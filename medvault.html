@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      /* Container */
+.mainblock{
+  background: radial-gradient(circle at 74.2% 50.9%, rgb(14, 72, 222) 5.2%, rgb(3, 22, 65) 75.3%);
+}
+
+.container {
+    margin: auto;
+    width: 50%;
+    padding: 45px;
+    background: linear-gradient(178deg, rgba(201, 234, 252, 0.51) 14.9%, rgba(139, 192, 216, 0.73) 80%);
+  
+  }  
+  /* Header */
+  header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .date{
+    border-radius:7px ;
+    border:none;
+    font-weight: bold;
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  /* Form */
+  .form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .form h3 {
+    font-size: 24px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+  
+  /* Input Boxes */
+  .input-box {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="tel"],
+  
+
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  
+  select {
+    cursor: pointer;
+  }
+  
+  textarea {
+    height: 100px;
+  }
+  /* Gender radio group */
+  .radio-group {
+    display: flex;
+    margin-top: 5px;
+  }
+  
+  .radio-group label {
+    margin-right: 10px;
+  }
+  
+  /* Reason select box and other input */
+  #other-input {
+    margin-top: 10px;
+  }
+  
+  #other-reason {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    display: none;
+  }
+  
+  /* Submit button */
+  .button{
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 2px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    margin:auto;
+
+    width:25%;
+  }
+  
+  .button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Validation Error Messages */
+  .error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  .alert{
+    width: 100%;
+    border-radius: 15px;
+    background: rgb(7, 124, 56);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 900;
+    display: none;
+}
+  
+  /* Responsive design for smaller screens */
+  @media screen and (max-width: 768px) {
+    .container {
+      width: 100%;
+    }
+    .input-box {
+      width: 48%;
+    }
+  }
+
+    </style>
+    <title>Registration Form in HTML CSS</title>
+  </head>
+  <body class="mainblock">
+    <section class="container">
+      <header><h1>MEDVAULT</header>
+      <form action="#"id="medvaultform" class="form">
+        <div class="alert">Response submitted</div>
+        <h3>Patient Information</h3>
+        <div class="column">
+        <div class="input-box">
+          <label>Full Name</label>
+          <input type="text" id="name" placeholder="Enter full name" required />
+        </div>
+
+        <div class="input-box">
+          <label>Email Address</label>
+          <input type="text" id="email" placeholder="Enter email address" required />
+        </div>
+
+          <div class="input-box">
+            <label>Phone Number</label>
+            <input type="number" id="number" placeholder="Enter phone number" required />
+          </div>
+          <div class="input-box">
+            <label>Birth Date</label>
+            <input type="date" id="birthdate" class="date" placeholder="Enter birth date" required />
+          </div>
+          
+          <div>
+            <label for="blood-group">Blood Group:</label>
+            <select id="blood-group" name="blood-group">
+              <option value="">Select a blood group</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+          </div>
+
+          <div class="input-box">
+          <label>Would you like to share your previous medical history :</label>
+          <label>
+            <input type="radio" name="yesnoRadio" id="yes" value="yes"> Yes
+          </label>
+          <label>
+            <input type="radio" name="yesnoRadio" id="no" value="no"> No
+          </label>
+          <div id="inputBoxContainer" style="display: none;">
+            <input type="text" id="hospital-name" placeholder="Enter the name of the hospital visited before:">
+            <input type="text" id="medical-condition" placeholder="Enter prior medical conditions:">
+            <input type="text" id="medication" placeholder="Enter the medication given">
+          </div>          
+          <div class="gender">
+            <label>Gender:</label>
+            <div class="radio-group">
+              <label><input type="radio" id="male" name="gender" value="male"> Male</label>
+              <label><input type="radio" id="female" name="gender" value="female"> Female</label>
+              <label><input type="radio" id="other" name="gender" value="other"> Other</label>
+            </div>
+          </div>
+          <div class="input-box">
+            <label>Reason for Admission</label>
+            <select id="reason-select" onchange="showOtherInput()">
+              <option value="">Select reason for admission</option>
+              <option value="c-section">C-Section</option>
+              <option value="heart-problem">Heart Problem</option>
+              <option value="cancer">Cancer Treatment</option>
+              <option value="injury">Injury</option>
+              <option value="other">Other</option>
+            </select>
+            <div id="other-input" style="display:none">
+              <input type="text" id="other-reason" placeholder="Please specify" />
+            </div>
+          </div>
+          
+          <script>
+            function showOtherInput() {
+              var selectBox = document.getElementById("reason-select");
+              var otherInput = document.getElementById("other-input");
+              if (selectBox.value == "other") {
+                otherInput.style.display = "block";
+              } else {
+                otherInput.style.display = "none";
+              }
+            }
+          </script>
+          <div class="input-box address">
+            <label>Address</label>
+            <input type="text" id="doorno" placeholder="Enter House name,door number" required />
+            <input type="text" id="street" placeholder="Enter street name and area" required />
+              <input type="text" id="city" placeholder="Enter your city" required />
+              <input type="text" id="state" placeholder="Enter your state" required />
+              <input type="number" id="postalcode" placeholder="Enter postal code" required />
+              <div class="select-box">
+                <select id="country">
+                  <option hidden>Country</option>
+                  <option>America</option>
+                  <option>Japan</option>
+                  <option>India</option>
+                  <option>Nepal</option>
+                </select>
+              </div>
+            </div>
+
+        <div class="emergency-contact">
+          <h3>Emergency Contact Information</h3>
+          <div class="input-box">
+            <label for="emergency-name">Name</label>
+            <input type="text" id="emergency-name" placeholder="Enter name" required>
+          </div>
+          <div class="input-box">
+            <label for="emergency-phone">Phone Number</label>
+            <input type="tel" id="emergency-phone" placeholder="Enter phone number" required>
+          </div>
+          <div class="input-box">
+            <label for="emergency-relationship">Relationship</label>
+            <input type="text" id="emergency-relationship" placeholder="Enter relationship" required>
+          </div>
+        </div>
+        <div class="input-box button">
+          <button class="button" type="submit">submit</button>
+        </div>
+        </div>
+      <form></section>
+        <script>
+        const radioButtons = document.getElementsByName('yesnoRadio');
+          const inputBoxContainer = document.getElementById('inputBoxContainer');
+          radioButtons.forEach(function(radioButton) {
+            radioButton.addEventListener('change', function() {
+              if (radioButton.value === 'yes') {
+                inputBoxContainer.style.display = 'block';
+              } else {
+                inputBoxContainer.style.display = 'none';
+              }
+            });
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+        
+      <script>
+ const firebaseConfig = {
+    apiKey: "AIzaSyA3qkq90Vsn1rDKJM6YA3CBLQrruxU8kFA",
+    authDomain: "medvault-1c694.firebaseapp.com",
+    databaseURL: "https://medvault-1c694-default-rtdb.firebaseio.com",
+    projectId: "medvault-1c694",
+    storageBucket: "medvault-1c694.appspot.com",
+    messagingSenderId: "904852095096",
+    appId: "1:904852095096:web:3ae34ea2aa2b8396496d8d",
+    measurementId: "G-6S2C2E0QMG"
+  };
+
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+ //reference your database  
+var medvaultformDB=firebase.database().ref("Medvault-form");
+document.getElementById("medvaultform").addEventListener("submit",submitForm);
+function submitForm(e){
+    e.preventDefault();
+    var name=getelementval("name");
+    var emailid=getelementval("email");
+    var number=getelementval("number");
+    var birthdate=getelementval("birthdate");
+    var bloodgroup=getelementval("blood-group");
+    var hospitalname=getelementval("hospital-name");
+    var medicalhistorypermission=getelementval("yes");
+    var medicalhistorypermission=getelementval("no");
+    var medicalcondition=getelementval("medical-condition");
+    var medication=getelementval("medication");
+    var gender=getelementval("male");
+    var gender=getelementval("female");
+    var gender=getelementval("other");
+    var reason=getelementval("reason-select");
+    var doorno=getelementval("doorno");
+    var street=getelementval("street");
+    var city=getelementval("city");
+    var state=getelementval("state");
+    var postalcode=getelementval("postalcode");
+    var country=getelementval("country");
+    var emergencyname=getelementval("emergency-name");
+    var emergencynumber=getelementval("emergency-phone");
+    var emergencyrelation=getelementval("emergency-relationship");
+
+    savemessages(name,emailid,number,birthdate,bloodgroup,medicalhistorypermission,hospitalname,medicalcondition,medication,gender,reason,doorno,street,city,state,postalcode,country,emergencyname,emergencynumber,emergencyrelation);
+    //enable alert
+    document.querySelector('.alert').style.display="block";
+    //remove the alert
+    setTimeout( () => {
+    document.querySelector('.alert').style.display="none";
+    },3000);
+    //   reset the form
+  document.getElementById("medvaultform").reset();
+}
+
+const savemessages=(name,emailid,number,birthdate,bloodgroup,medicalhistorypermission,hospitalname,medicalcondition,medication,gender,reason,doorno,street,city,state,postalcode,country,emergencyname,emergencynumber,emergencyrelation)=>{
+    var newform=medvaultformDB.push();
+    
+    newform.set({
+        name: name,
+        emailid: emailid,
+        number: number,
+        birthdate: birthdate,
+        bloodgroup: bloodgroup,
+        medicalhistorypermission: medicalhistorypermission,
+        hospitalname: hospitalname,
+        medicalcondition: medicalcondition,
+        medication: medication,
+        gender: gender,
+        reason: reason,
+        doorno: doorno,
+        street: street,
+        city: city,
+        state: state,
+        postalcode: postalcode,
+        country: country,
+        emergencyname: emergencyname,
+        emergencynumber: emergencynumber,
+        emergencyrelation: emergencyrelation,
+        
+    })
+}
+
+const getelementval=(id)=>{
+    return document.getElementById(id).value;
+};
+
+        </script>
+   </body>
+</html>
